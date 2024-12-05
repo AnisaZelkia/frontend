@@ -1,0 +1,30 @@
+<div class="mx-6">
+    <h1>User</h1>
+    <div class="col-3 my-2">
+        <app-button-primary label="Create User" routerLink="create"></app-button-primary>
+    </div>
+    <p-table [value]="allUsers" [lazy]="true" (onLazyLoad)="loadData($event)" responsiveLayout="scroll" [paginator]="true"
+    [rows]="maxPage" [totalRecords]="totalData" [loading]="loading" [rowsPerPageOptions]="[3, 5]"
+    tyleClass="p-datatable-gridlines" [globalFilterFields]="['id', 'Fullname','Email','Role']" [tableStyle]="{'min-width': '50rem'}">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>No</th>
+                    <th>Fullname</th>
+                    <th>Email</th>
+                    <th>Role</th>
+                    <th>Action</th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-users let-i="rowIndex">
+                <tr>
+                    <td>{{i + 1}}</td>
+                    <td>{{users.fullname}}</td>
+                    <td>{{users.email}}</td>
+                    <td>{{users.roleName}}</td>
+                    <td class="flex gap-2">
+                        <app-button-icon routerLink="/user/update/{{users.userId}}" ></app-button-icon>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+</div>

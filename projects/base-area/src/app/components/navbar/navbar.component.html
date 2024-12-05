@@ -1,0 +1,22 @@
+<p-menubar [model]="items">
+    
+    <ng-template pTemplate="start">
+      <img src="https://i.ibb.co/nLxz9PJ/unnamed-2.png" alt="wecommunity logo" style="width: 100px;object-fit: contain !important;" class="mr-2">
+    </ng-template>
+    <ng-template pTemplate="end">
+        <div (click)="op.toggle($event)">
+            <p-avatar image="http://localhost:2121/files/{{img}}" styleClass="mr-2" size="xlarge" shape="circle"></p-avatar>
+        </div>
+        <p-overlayPanel #op>
+            <ng-template pTemplate>
+                <div routerLink="/profile"> <i class="pi pi-fw pi-user"></i>Profile</div>
+                <p-divider></p-divider>
+                <div (click)="onLogout()"><i class="pi pi-fw pi-sign-out"></i> Logout</div>
+            </ng-template>
+        </p-overlayPanel>
+    </ng-template>
+</p-menubar>
+
+
+
+<router-outlet></router-outlet>
